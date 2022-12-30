@@ -1,13 +1,15 @@
+image: node:14.17.4
 
 pages:
   stage: deploy
+  before_script:
+    - npm install
   script:
-    - mkdir .public
-    - cp -r * .public
-    - rm -rf public
-    - mv .public public
+    - npm run build
+    - cp -r dist public
   artifacts:
     paths:
       - public
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+
