@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { ICard } from '../../types';
 import './Card.css';
-import back from '../../../public/images/cover.svg'
+import back from '/src/images/cover.svg'
 
 interface Props {
     card: ICard,
