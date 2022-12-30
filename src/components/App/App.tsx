@@ -4,18 +4,17 @@ import Card from '../Card/Card';
 import Popup from '../Popup/Popup';
 import { ICard } from '../../types';
 
+import nginx from '../../images/Nginx.svg';
+import nodejs from '../../images/NodeJS.svg';
+import react from '../../images/React.svg';
+import redux from '../../images/Redux.svg';
+import square from '../../images/Square.svg';
+import ts from '../../images/TS.svg';
+import tulip from '../../images/Tulip.svg';
+import ws from '../../images/Webstorm.svg';
 
 
-const cardImages = [
-    { "src": "../../images/Nginx.svg", matched: false },
-    { "src": "../../images/NodeJS.svg", matched: false },
-    { "src": "../../images/React.svg", matched: false },
-    { "src": "../../images/Redux.svg", matched: false },
-    { "src": "../../images/Square.svg", matched: false },
-    { "src": "../../images/TS.svg", matched: false },
-    { "src": "../../images/Tulip.svg", matched: false },
-    { "src": "../../images/Webstorm.svg", matched: false },
-]
+const cardImages = [nginx, nodejs, react, redux, square, ts, tulip, ws]
 
 const MAX_MOVES = 40;
 
@@ -29,8 +28,8 @@ const App = () => {
 
     const shuffleCards = () => {
         const shuffledCards = [...cardImages, ...cardImages]
-            .sort(() => Math.random() - 0.5)
-            .map((card) => ({ ...card, id: Math.random() }))
+            .sort(() => 0.5 - Math.random())
+            .map((url, index) => ({id: index + 1, src: url,  matched: false }))
 
         setChoiceOne(null);
         setChoiceTwo(null);
@@ -69,8 +68,8 @@ const App = () => {
     useEffect(() => {
         if (cards.length > 0 && cards.every((card) => card.matched)) {
             setMessages(['Ура, вы выиграли!', `это заняло ${moves} ходов`]);
-            }
-        }, [cards]);
+        }
+    }, [cards]);
 
 
     const resetMove = () => {
@@ -114,7 +113,7 @@ const App = () => {
                 </div>
             </main>
         </div>
-)
+    )
 }
 
 export default App;
