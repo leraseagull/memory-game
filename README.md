@@ -6,4 +6,6 @@
 - Babel
 - Webpack
 
-ссылка:
+сайт развернула на своем сервере Nginx, привязала домен от karpov.courses
+
+ссылка: https://budva.karpovdns.net/
